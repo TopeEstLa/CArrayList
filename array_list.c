@@ -37,7 +37,7 @@ Array_List* array_list_create(int item_size, int initial_capacity) {
     return list;
 }
 
-int array_list_append(Array_List *list, void *item) {
+int array_list_append(Array_List* list, void* item) {
     if (list == NULL) {
         printf("CArrayList: List is NULL\n");
         return -1;
@@ -67,7 +67,7 @@ int array_list_append(Array_List *list, void *item) {
     return index;
 }
 
-void* array_list_get(Array_List *list, int index) {
+void* array_list_get(Array_List* list, int index) {
     if (list == NULL) {
         printf("CArrayList: List is NULL\n");
         return NULL;
@@ -79,4 +79,25 @@ void* array_list_get(Array_List *list, int index) {
     }
 
     return list->items + (index * list->item_size);
+}
+
+int array_list_remove(Array_List* list, int index) {
+    if (list == NULL) {
+        printf("CArrayList: List is NULL\n");
+        return -1;
+    }
+
+    if (index < 0 || index >= list->length) {
+        printf("CArrayList: Index out of bounds\n");
+        return -1;
+    }
+
+    int* src = list->items + ((index + 1) * list->item_size);
+    int* dest = list->items + (index * list->item_size);
+    int count = list->length - index - 1;
+
+    memmove(dest, src, list->item_size * count);
+    list->length--;
+
+    return 0;
 }

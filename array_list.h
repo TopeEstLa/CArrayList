@@ -26,7 +26,7 @@ Array_List* array_list_create(int item_size, int initial_capacity);
  * @param item the item to append
  * @return the index on the list where the item was appended
  */
-int array_list_append(Array_List *list, void *item);
+int array_list_append(Array_List* list, void* item);
 
 /**
  * Get an item from the array list
@@ -34,7 +34,7 @@ int array_list_append(Array_List *list, void *item);
  * @param index the index of the item to get
  * @return the item at the index or NULL if error
  */
-void* array_list_get(Array_List *list, int index);
+void* array_list_get(Array_List* list, int index);
 
 /**
  * Remove an item from the array list
@@ -42,6 +42,6 @@ void* array_list_get(Array_List *list, int index);
  * @param index the index of the item to remove
  * @return 0 if successful, -1 otherwise
  */
-int array_list_remove(Array_List *list, int index);
+int array_list_remove(Array_List* list, int index);
 
 #endif //ARRAY_LIST_H
